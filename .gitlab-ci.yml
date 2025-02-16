@@ -22,6 +22,5 @@ test:
       - result.log  # Optional: Specify any files you want to keep as artifacts
     expire_in: 1 week
 
-# Trigger the pipeline only when pushing to the 'main' branch
-only:
-  - main
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'  # This will trigger the job only for the 'main' branch
