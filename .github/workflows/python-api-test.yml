@@ -1,30 +1,27 @@
-name: API Automation Test
+name: Python API Test
 
 on:
   push:
     branches:
       - main
-      - master
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
 
 jobs:
-  run-api-tests:
+  run-python-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.9"
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
 
-      - name: Install Dependencies
-        run: pip install requests
+    - name: Install dependencies
+      run: |
+        pip install requests
 
-      - name: Run API Tests
-        run: python "C:\API Request\API Request\Go Rest API\request api.py"
+    - name: Run API tests
+      run: |
+        python ./Go\ Rest\ API/request\ api.py
