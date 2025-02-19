@@ -32,4 +32,5 @@ jobs:
       - name: Run API Test
         run: |
           echo "Running the API test script..."
-          python3 "./API Request/API Request/API_AUTOMATION_REQRES/api_automation.py"
+          python3 "./API_AUTOMATION_REQRES/api_automation.py"
+
