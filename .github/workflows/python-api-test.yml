@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:  # Manually trigger the workflow from the GitHub UI
 
 jobs:
   test:
