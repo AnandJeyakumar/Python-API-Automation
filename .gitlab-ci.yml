@@ -14,6 +14,8 @@ before_script:
 test:
   stage: test
   script:
+    - echo "Listing files in the directory..."
+    - ls -R ./API Request  # Check if the file exists in the pipeline
     - echo "Running the API test script..."
     - python3 "./API Request/API Request/API_AUTOMATION_REQRES/api_automation.py"
 
