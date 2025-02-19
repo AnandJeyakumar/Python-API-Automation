@@ -1,4 +1,4 @@
-name: Python API Test
+name: API Test
 
 on:
   push:
@@ -7,22 +7,30 @@ on:
       - master
 
 jobs:
-  run-python-tests:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
 
-    - name: Install dependencies
-      run: |
-        pip install requests
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install requests
 
-    - name: Run API tests
-      run: |
-        python ./Go\ Rest\ API/request\ api.py
+      - name: List files in repository
+        run: |
+          echo "Listing files in the repository..."
+          ls -R
+
+      - name: Run API Test
+        run: |
+          echo "Running the API test script..."
+          source venv/bin/activate
+          python3 "./API_AUTOMATION_REQRES/api_automation.py"
