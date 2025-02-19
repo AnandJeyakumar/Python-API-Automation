@@ -24,6 +24,11 @@ jobs:
           source venv/bin/activate
           pip install requests
 
+      - name: List files in repository
+        run: |
+          echo "Listing files in the repository..."
+          ls -R
+
       - name: Run API Test
         run: |
           echo "Running the API test script..."
