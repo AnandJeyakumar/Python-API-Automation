@@ -23,4 +23,4 @@ test:
     expire_in: 1 week
 
   rules:
-    - if: '$CI_COMMIT_BRANCH == "main"'  # This will trigger the job only for the 'main' branch
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'  # Trigger on both main and master branches
